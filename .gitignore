@@ -4,3 +4,12 @@
 *.jar
 *.war
 *.ear
+/ReceptionSTG/nbproject/private/
+/ReceptionSTG/build/
+/ReceptionSTG/dist/
+/CommonJEE/nbproject/private/
+/CommonJEE/dist/
+/CommonJEE/build/
+/TraitementSTG/nbproject/private/
+/TraitementSTG/dist/
+/TraitementSTG/build/
