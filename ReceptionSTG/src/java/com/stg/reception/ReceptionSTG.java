@@ -44,10 +44,15 @@ public class ReceptionSTG {
     
     private Connection cnx;
     
+    private MessageProducer messageProducer;
+    private Session session;
+    
     @PostConstruct
     protected void init(){
         try{
             cnx = factory.createConnection();
+            this.session = cnx.createSession(true, 0);
+            this.messageProducer = session.createProducer(queue);
         }catch(JMSException ex){
             Logger.getLogger(ReceptionSTG.class.getName()).log(Logger.Level.FATAL, ex);
             throw new EJBException();
@@ -68,28 +73,23 @@ public class ReceptionSTG {
      */
     @WebMethod(operationName = "sendToQueue")
     @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-    public void sendToQueue(@WebParam(name = "message") String txtDecrypted, @WebParam(name = "fileName") String fileName,@WebParam(name = "key") String key) {
+    public void sendToQueue(@WebParam(name = "message") String txtDecrypted, @WebParam(name = "fileName") String fileName,@WebParam(name = "key") String key, @WebParam(name = "sample") Boolean sample) {
         
         try{
-            Session session = cnx.createSession(true, 0);
-            MessageProducer producer = session.createProducer(queue);
-            
-            /*  TEST To Remove */
             Map map = new HashMap<>();
             map.put("M_database", "//localhost:3306/dicobdd");
             map.put("M_driver", "com.mysql.jdbc.Driver");
             map.put("M_user", "root");
             map.put("M_password", "admin");
+            map.put("sample", sample);
+            map.put("mail", "");
             map.put("txt_decrypted", txtDecrypted);
             map.put("file_name", fileName);
             map.put("key", key);
             STG oSTG = new STG(true, "", map, "dechiffrer", "Client.NET", "TokenUser");
             
-            
-            
-            ObjectMessage obj = session.createObjectMessage(oSTG);
-            System.out.println("Object Reçu");
-            producer.send(obj);
+            ObjectMessage obj = this.session.createObjectMessage(oSTG);
+            this.messageProducer.send(obj);
         }catch(JMSException ex){
             Logger.getLogger(ReceptionSTG.class.getName()).log(Logger.Level.FATAL, ex);
             throw new EJBException();

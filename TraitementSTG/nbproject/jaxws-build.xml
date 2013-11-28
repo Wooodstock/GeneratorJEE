@@ -26,8 +26,8 @@
     </target>
     <target name="wsimport-client-ServiceMetadata" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/ServiceMetadata"/>
-        <property name="wsdl-ServiceMetadata" location="${meta.inf}/xml-resources/web-service-references/ServiceMetadata/wsdl/localhost_8080/ServiceMetadata.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServiceMetadata" destdir="${build.generated.dir}/jax-wsCache/ServiceMetadata" wsdl="${wsdl-ServiceMetadata}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/ServiceMetadata?wsdl" xnocompile="true" xendorsed="true" package="com.webservice.dotnet">
+        <property name="wsdl-ServiceMetadata" location="${meta.inf}/xml-resources/web-service-references/ServiceMetadata/wsdl/172.16.254.146_8080/ServiceMetadata.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServiceMetadata" destdir="${build.generated.dir}/jax-wsCache/ServiceMetadata" wsdl="${wsdl-ServiceMetadata}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://172.16.254.146:8080/ServiceMetadata?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-ServiceMetadata}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/ServiceMetadata"/>
         </wsimport>
@@ -39,7 +39,7 @@
     </target>
     <target name="wsimport-client-clean-ServiceMetadata" depends="-init-project">
         <delete dir="${build.generated.dir}/jax-wsCache/ServiceMetadata"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/com/webservice/dotnet"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/org/tempuri"/>
     </target>
     <target name="wsimport-client-generate" depends="wsimport-client-ServiceMetadata"/>
 </project>

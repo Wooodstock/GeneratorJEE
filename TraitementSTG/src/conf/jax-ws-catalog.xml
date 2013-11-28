@@ -6,4 +6,10 @@
     <system systemId="http://localhost:8080/ServiceMetadata?xsd=xsd1" uri="wsdl/localhost_8080/ServiceMetadata.xsd_xsd1.xsd"/>
     <system systemId="http://localhost:8080/ServiceMetadata?xsd=xsd2" uri="wsdl/localhost_8080/ServiceMetadata.xsd_xsd2.xsd"/>
     <system systemId="http://localhost:8080/ServiceMetadata?xsd=xsd3" uri="wsdl/localhost_8080/ServiceMetadata.xsd_xsd3.xsd"/>
+    <system systemId="http://172.16.254.146:8080/ServiceMetadata?wsdl" uri="wsdl/172.16.254.146_8080/ServiceMetadata.wsdl"/>
+    <system systemId="http://172.16.254.146:8080/ServiceMetadata?wsdl=wsdl0" uri="wsdl/172.16.254.146_8080/ServiceMetadata.wsdl_wsdl0.wsdl"/>
+    <system systemId="http://172.16.254.146:8080/ServiceMetadata?xsd=xsd0" uri="wsdl/172.16.254.146_8080/ServiceMetadata.xsd_xsd0.xsd"/>
+    <system systemId="http://172.16.254.146:8080/ServiceMetadata?xsd=xsd1" uri="wsdl/172.16.254.146_8080/ServiceMetadata.xsd_xsd1.xsd"/>
+    <system systemId="http://172.16.254.146:8080/ServiceMetadata?xsd=xsd2" uri="wsdl/172.16.254.146_8080/ServiceMetadata.xsd_xsd2.xsd"/>
+    <system systemId="http://172.16.254.146:8080/ServiceMetadata?xsd=xsd3" uri="wsdl/172.16.254.146_8080/ServiceMetadata.xsd_xsd3.xsd"/>
 </catalog>
